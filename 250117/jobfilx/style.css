@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+header {
+  border: 1px solid;
+}
+
+/* 실렉터 띄워쓰기 실레터는 첫번째 실레터 안에 있는 모든 다음 실렉터 선택*/
+header div {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  align-items: center;
+}
+
+header ul {
+  display: flex;
+  column-gap: 20px;
+  list-style-type: none;
+}
+
+header li {
+  margin-right: 10px;
+}
+
+.myBtn,
+header .title {
+  border: none;
+  cursor: pointer;
+}
+//두개 이상을 이을때는 ,사용
+
+.myBtn:hover {
+  opacity: 0.8;
+  transform: scale(1.09);
+}
+
+.myBtn:active {
+  opacity: 0.5;
+  color: tomato;
+  transform: scale(0.95);
+}
+
+header .title {
+  font-weight: 900;
+  font-size: 20px;
+  padding: 20px 10px;
+  color: tomato;
+  background-color: transparent;
+  border: 1px solid;
+}
+
+body {
+  background-color: rgb(40, 40, 40);
+  color: whitesmoke;
+}
+header .myBtn {
+  border-radius: 4px;
+  padding: 10px 5px;
+}
+
+.myBtn .login {
+  background-color: tomato;
+  color: whitesmoke;
+}
+/* == .== .== 이런식으로 여러개 가능 */
+
+/* marjin, padding 공동 상, 우, 하, 좌 순으로 px 설정 숫자를 2개 받을때 상하 */
+
+/* 클래스 작명시 너무 흔한이름 안됨 */
+
+.myBtn .lang {
+  background-color: transparent;
+  color: whitesmoke;
+  border: tomato;
+}
