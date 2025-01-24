@@ -1,0 +1,130 @@
+<!--object와 array-->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문</title>
+  </head>
+  <body>
+    <script>
+      // Object 객체
+      // {}는 메모리 할당을 의미->저장한다는 의미
+      // 객체 안의 값은 ,로 구분됨
+      const person = {
+        name: "주동건",
+        tel: "01012345678",
+      };
+
+      console.log(person);
+      console.log(typeof person);
+
+      //person name을 출력하세요.
+      console.log(person.name);
+      console.log(person["name"]);
+
+      console.log(typeof person.name); //타입 확인방법
+
+      //person tel을 출력하세요.
+      console.log(person.tel);
+      console.log(person["tel"]);
+
+      // 객체안의 변수 출력
+      // 1. console.log(오브젝트명.변수이름)
+      // 2. console.log(오브젝트명["변수이름"])
+
+      // 변수명 me로 객체를 만들기, 객체 안에 이름, 거주지, 연락처, 방송용 나이, 방송용 키 넣기
+      const me = {
+        myname: "주동건",
+        address: "대전 서구",
+        myTel: "01045454545",
+        age: 27,
+        tall: 181,
+      };
+
+      // console.log 이름, 거주지, 연락처, 나이, 키 출력 . []둘다 사용하기
+      console.log(me.myname);
+      console.log(me["myname"]);
+      console.log(me.age);
+      console.log(me["age"]);
+      console.log(me.tall);
+      console.log(me["tall"]);
+      console.log(me.myTel);
+      console.log(me["myTel"]);
+      console.log(me.address);
+      console.log(me["address"]);
+
+      // 타입 확인
+      console.log(typeof me.tall);
+      console.log(typeof me.myTel);
+      console.log(typeof me.age);
+      console.log(typeof me.address);
+      console.log(typeof me.myname);
+      // 객체 안에 값을 출력할때.으로 할 수 있는데 왜 []를 쓸까?
+      const 객체값추출기 = (객체, 값) => {
+        console.log(객체[`${값}`]);
+      };
+
+      let stringCopy = "";
+      const randomString = "asdas";
+      stringCopy = { ...randomString };
+      console.log(stringCopy);
+
+      const 객체생성기 = (객체, 값이름, 값) => {
+        let copy = { ...객체 }; //...을 사용하여 변수 복사하기 {}안에 복사할 값은 오브젝트일때만 가능
+        copy[`${값이름}`] = 값;
+
+        console.log(copy);
+      };
+      객체값추출기(me, "age");
+      객체생성기(me, "age", 21);
+
+      // array 배열 = 오브젝트(객체)와 마찬가지 모든 타입을 담을 수 있음
+      const array = ["a", 12, false, undefined, null];
+      //배열에는 같은 형태의 타입을 담는 것이 좋다.
+      const betterArray = [me, me, me];
+      console.log(betterArray);
+
+      const anotherArray = [array, array, array];
+      console.log(anotherArray);
+
+      console.log(array);
+      console.log(typeof array);
+    </script>
+  </body>
+</html>
+
+<!--if문-->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문</title>
+  </head>
+  <body>
+    <!-- <script>
+      const name = "주동건";
+
+      console.log(name);
+      console.log(name.length);
+
+      const myFn = () => {
+        if (name.length === 1) {
+          alert("이름을 정확하게 입력하세요");
+          return;
+        }
+        if (name.length >= 12) {
+          alert("이름이 너무 긴거 같아요...");
+          return;
+        }
+        alert("좋은 이름이네요.");
+      };
+
+      //myFn();
+
+    </script> -->
+
+    <script src="fn.js"></script>
+  </body>
+</html>
