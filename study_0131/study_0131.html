@@ -1,0 +1,147 @@
+<!--while, for, do while 사용-->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while</title>
+    <style>
+      body {
+        font-size: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // while : ~하는 동안에
+      // 사용방법 : while (조건) {실행코드}
+      // const text = prompt("텍스트를 입력하세요.");
+
+      // for : ~하는 동안에
+      // 사용방법 : for(변수선언, 조건, 규칙){실행코드}
+      // let a = 2;
+      // for (let i = 0; i < 9; i++) {
+      //   // console.log(i);
+      //   document.write(`<p>${a} x ${i + 1}</p>`);
+      // }
+      for (let i = 1; i < 32; i++) {
+        console.log("i의 값은", i, "입니다.");
+        document.write(`<p>${i}일</p>`);
+      }
+
+      let b = 0;
+      while (b < 10) {
+        b = b + 1;
+        console.log(b);
+        alert(`현재 b의 값은 ${b}입니다`);
+      }
+
+      //do while 사용방법 : do {실행코드} while (조건)
+      let c = 0;
+      do {
+        c = c + 1;
+        console.log(c);
+      } while (c < 5);
+
+      let array = Array.from({ length: 31 }, (_, i) => i + 1);
+      console.log(array);
+
+      // while (text.length === 0) {
+      // alert("텍스트를 입력하세요.");
+      // }
+    </script>
+  </body>
+</html>
+
+<!--Re-Factoring 및 조건문 사용-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>월별 교통비 계산</title>
+  </head>
+  <body>
+    <main>
+      <h1>Re-Factoring</h1>
+      <p>거지같이 짜놓은 코드 예쁘고 효율적이게 만들기 + 기능개선</p>
+      <div>
+        <label for="method">등교수단</label>
+        <button id="method">선택</button>
+      </div>
+      <div>
+        <label for="fares">요금</label>
+        <button id="fares">선택</button>
+      </div>
+      <div>
+        <label for="dates">등교일수</label>
+        <button id="dates">선택</button>
+      </div>
+      <button id="cal">월별 교통비용</button>
+    </main>
+
+    <script>
+      const method = document.getElementById("method");
+      const fares = document.getElementById("fares");
+      const dates = document.getElementById("dates");
+      const cal = document.getElementById("cal");
+      let option = "";
+      let price = 0;
+      let schoolDates = 0;
+      method.onclick = () => {
+        const a = prompt("등교수단을 입력하세요.");
+        if (a.length === 0) {
+          return alert("[ERROR] 등교수단을 다시 입력하세요.");
+        }
+
+        method.innerText = a;
+        option = a;
+      };
+      fares.onclick = () => {
+        const b = prompt("요금을 입력해주세요.");
+        if (b.length === 0) {
+          return alert("[ERROR] 요금을 다시 입력하세요.");
+        }
+        fares.innerText = b;
+        price = Number(b);
+      };
+      dates.onclick = () => {
+        const c = prompt("등교일수를 입력해주세요.");
+        if (c.length === 0) {
+          return alert("[ERROR] 등교일수를 다시 입력하세요.");
+        }
+        dates.innerText = c;
+        schoolDates = Number(c);
+      };
+      cal.onclick = () => {
+        console.log(option, price, schoolDates);
+        if (option.length === 0) {
+          alert("등교수단을 입력해주세요.");
+          return method.onclick();
+        }
+        if (price === 0) {
+          alert("요금을 입력해주세요.");
+          return fares.onclick();
+        }
+        if (schoolDates === 0) {
+          alert("등교일수를 입력해주세요.");
+          return dates.onclick();
+        }
+
+        document.write(
+          `<h1>등교수단은 ${option}이고, 등교일수는 ${schoolDates}일이며, 등교 비용은 ${
+            price * schoolDates
+          }원 입니다.</h1>`
+        );
+      };
+    </script>
+  </body>
+</html>
